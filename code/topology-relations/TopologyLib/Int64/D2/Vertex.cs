@@ -139,7 +139,7 @@ namespace TopologyLib.Int64.D2
 
         public bool Equals(Vertex? other)
         {
-            return other is not null && (ReferenceEquals(this, other) || 
+            return other != null && (ReferenceEquals(this, other) || 
                    EqualityComparer<IIntegerPoint>.Default.Equals(Point, other.Point));
         }
 

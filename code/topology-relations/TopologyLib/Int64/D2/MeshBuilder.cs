@@ -121,15 +121,14 @@ namespace TopologyLib.Int64.D2
             mesh = Mesh.CreateTriangulation(iPoints);
 
 
-#if true
+#if false
             if (!mesh.IsValid())
             {
                 Console.WriteLine();
             }
-            mesh.WriteSvg("meshTest");
 #endif
 
-            if (mesh.Faces is not null)
+            if (mesh.Faces != null)
             {
                 var builder = new Builder(mesh);
                 // Kanten der LineStrings einfügen
@@ -532,7 +531,7 @@ namespace TopologyLib.Int64.D2
                                     if (jbe2.Key > iDest)
                                     {
                                         var v = iMe.AddIntersection(this, jbe2.Value);
-                                        if (v is not null)
+                                        if (v != null)
                                             vertices.Add(v);
                                     }
                                 }

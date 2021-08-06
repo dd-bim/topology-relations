@@ -401,7 +401,7 @@ namespace TopologyLib.Int32.D2
                 //Next.RefFace = Twin.RefFace;
             }
 
-            if (Twin.Collinear is not null)
+            if (Twin.Collinear != null)
                 Twin.Collinear.Twin.Collinear = null;
 
             return true;

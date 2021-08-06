@@ -57,7 +57,7 @@ namespace TopologyLib.Data.D2.Geometry
             ? IMValue.Dim0 : IMValue.False;
 
         public IMValue GetIB(in Line l) =>
-            l.Boundary0 is not null && Interior0.Overlaps(l.Boundary0)
+            l.Boundary0 != null && Interior0.Overlaps(l.Boundary0)
             ? IMValue.Dim0 : IMValue.False;
 
         public IMValue GetIB(in Region a) =>
@@ -75,11 +75,11 @@ namespace TopologyLib.Data.D2.Geometry
             ? IMValue.False : IMValue.Dim1;
 
         public IMValue GetBB(in Line l) =>
-            Boundary0 is not null && l.Boundary0 is not null && Boundary0.Overlaps(l.Boundary0)
+            Boundary0 != null && l.Boundary0 != null && Boundary0.Overlaps(l.Boundary0)
             ? IMValue.Dim0 : IMValue.False;
 
         public IMValue GetBB(in Region a) =>
-            Boundary0 is not null && Boundary0.Overlaps(a.Boundary0)
+            Boundary0 != null && Boundary0.Overlaps(a.Boundary0)
             ? IMValue.Dim0 : IMValue.False;
 
         public IMValue GetBE(in Point p) =>

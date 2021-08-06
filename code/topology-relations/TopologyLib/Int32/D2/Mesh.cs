@@ -50,7 +50,7 @@ namespace TopologyLib.Int32.D2
             internal set
             {
                 _faces = value;
-                if (value is not null)
+                if (value != null)
                 {
                     _halfEdges = value.RefEdge;
                     Vertices = _halfEdges.Orig;
@@ -71,13 +71,13 @@ namespace TopologyLib.Int32.D2
             VertexIds = new Dictionary<Vertex, ImmutableHashSet<int>>();
             HalfEdgeIds = new Dictionary<HalfEdge, ImmutableHashSet<int>>();
             FaceIds = new Dictionary<Face, ImmutableHashSet<int>>();
-            if (faces is not null)
+            if (faces != null)
             {
                 _faces = faces;
                 _halfEdges = faces.RefEdge;
                 Vertices = _halfEdges.Orig;
             }
-            else if (halfEdges is not null)
+            else if (halfEdges != null)
             {
                 _faces = null;
                 _halfEdges = halfEdges;
@@ -570,7 +570,7 @@ namespace TopologyLib.Int32.D2
             int faceCount = 0;
             int hedgeCount = 0;
 
-            if (Faces is not null)
+            if (Faces != null)
             {
                 var allFaces = ImmutableArray.CreateRange(Faces.All());
 
@@ -626,10 +626,10 @@ namespace TopologyLib.Int32.D2
                 }
             }
 
-            if (HalfEdges is not null)
+            if (HalfEdges != null)
             {
                 var halfEdges = new HashSet<HalfEdge>(HalfEdges.All());
-                if (Faces is not null && hedgeCount != halfEdges.Count)
+                if (Faces != null && hedgeCount != halfEdges.Count)
                 {
                     return false;
                 }
@@ -675,156 +675,6 @@ namespace TopologyLib.Int32.D2
             }
 
             return true;
-        }
-
-        public void WriteSvg(string fileName, bool withVertices = true,
-            int margin = 10,
-            int width = 1200,
-            int height = 900,
-            string vertexRadius = "4", string vertexColor = "green", string vertexHoverRadius = "8",
-            string edgeWidth = "1", string edgeColor = "black", string edgeHoverWidth = "3",
-            string faceColor = "yellow", double minFaceOpacity = 0.1,
-            string hoverColor = "blue",
-            string boundaryWidth = "2", string boundaryColor = "red",
-            string meshBoundaryColor = "green")
-        {
-            var min = BBox.Min.ToDecimal();
-            var lrange = BBox.Range;
-            decimal xScale = (width - 2 * margin) / (decimal)lrange.x;
-            decimal yScale = (height - 2 * margin) / (decimal)lrange.y;
-            decimal scale = Math.Min(xScale, yScale);
-
-            Decimal.Vector ToMap(in IIntegerPoint p)
-            {
-                var red = p.ToDecimal() - min;
-                return new Decimal.Vector(margin + scale * red.x, height - scale * red.y - margin);
-            }
-
-            var document = new XmlDocument();
-            var root = document.CreateElement("svg");
-            _ = document.AppendChild(root);
-            root.SetAttribute("xmlns", "http://www.w3.org/2000/svg");
-            root.SetAttribute("width", width.ToString());
-            root.SetAttribute("height", height.ToString());
-
-            var style = document.CreateElement("style");
-            style.SetAttribute("type", "text/css");
-            style.InnerText = $"polygon:hover {{fill:{hoverColor}; fill-opacity:1;}} circle:hover {{fill:{hoverColor}; r:{vertexHoverRadius};}} line:hover {{stroke-width:{edgeHoverWidth}; stroke:{hoverColor};}}";
-            _ = root.AppendChild(style);
-
-            //Punkte
-            var gPoint = document.CreateElement("g");
-            gPoint.SetAttribute("stroke", "none");
-            var vertexStrings = new Dictionary<Vertex, (string x, string y)>(PointVertices.Count);
-            foreach (var pv in PointVertices)
-            {
-                var p = ToMap(pv.Key);
-                var x = p.x.ToString(CultureInfo.InvariantCulture);
-                var y = p.y.ToString(CultureInfo.InvariantCulture);
-                vertexStrings[pv.Value] = (x, y);
-                if (!withVertices || pv.Key.x < 0)
-                    continue;
-                var c = document.CreateElement("circle");
-                c.SetAttribute("cx", x);
-                c.SetAttribute("cy", y);
-                c.SetAttribute("r", vertexRadius);
-                c.SetAttribute("fill", vertexColor);
-                _ = gPoint.AppendChild(c);
-                var t = document.CreateElement("title");
-                if (VertexIds.TryGetValue(pv.Value, out var ids))
-                {
-                    var sids = new List<string>(ids.Count);
-                    foreach (int id in ids)
-                        sids.Add(id.ToString());
-                    t.InnerText = $"({pv.Key}) Ids: {string.Join(" ,", sids)}";
-                }
-                else
-                    t.InnerText = $"({pv.Key})";
-                _ = c.AppendChild(t);
-            }
-
-            //Kanten
-            var gEdge = document.CreateElement("g");
-            gEdge.SetAttribute("stroke-width", edgeWidth);
-            gEdge.SetAttribute("stroke", edgeColor);
-            if (HalfEdges != null)
-            {
-                foreach (var e in HalfEdges.AllEdges())
-                {
-                    var (ax, ay) = vertexStrings[e.Orig];
-                    var (bx, by) = vertexStrings[e.Dest];
-
-                    var l = document.CreateElement("line");
-                    l.SetAttribute("x1", ax);
-                    l.SetAttribute("y1", ay);
-                    l.SetAttribute("x2", bx);
-                    l.SetAttribute("y2", by);
-
-                    _ = gEdge.AppendChild(l);
-                    if (HalfEdgeIds.TryGetValue(e, out var ids) || HalfEdgeIds.TryGetValue(e.Twin, out ids))
-                    {
-                        var t = document.CreateElement("title");
-                        var sids = new List<string>(ids.Count);
-                        foreach (var id in ids)
-                            sids.Add(id.ToString());
-                        t.InnerText = "Ids: " + string.Join(" ,", ids);
-                        _ = l.AppendChild(t);
-                        l.SetAttribute("stroke", boundaryColor);
-                        l.SetAttribute("stroke-width", boundaryWidth);
-                    }
-                    else if (e.IsHullEdge)
-                    {
-                        l.SetAttribute("stroke", meshBoundaryColor);
-                        l.SetAttribute("stroke-width", boundaryWidth);
-                    }
-
-                }
-            }
-            // Faces
-            var gFace = document.CreateElement("g");
-            gFace.SetAttribute("stroke", "none");
-            gFace.SetAttribute("fill", faceColor);
-            gFace.SetAttribute("fill-opacity", minFaceOpacity.ToString("f3", CultureInfo.InvariantCulture));
-            double maxIds = 0;
-            foreach (var ids in FaceIds.Values)
-            {
-                if (ids.Count > maxIds)
-                    maxIds = ids.Count;
-            }
-            if (Faces != null)
-            {
-                foreach (var face in Faces.All())
-                {
-                    var ppoints = new List<string>();
-                    foreach (var he in face.Boundary())
-                    {
-                        var p = vertexStrings[he.Orig];
-                        ppoints.Add($"{p.x},{p.y}");
-                    }
-
-                    var poly = document.CreateElement("polygon");
-                    //poly.SetAttribute("id", string.Join(',', face.PolygonIds));
-                    poly.SetAttribute("points", string.Join(" ", ppoints));
-
-                    _ = gFace.AppendChild(poly);
-
-                    if (FaceIds.TryGetValue(face, out var ids))
-                    {
-                        var t = document.CreateElement("title");
-                        var sids = new List<string>(ids.Count);
-                        foreach (var id in ids)
-                            sids.Add(id.ToString());
-                        t.InnerText = "Ids: " + string.Join(" ,", ids);
-                        _ = poly.AppendChild(t);
-                        poly.SetAttribute("fill-opacity", (minFaceOpacity + (1 - minFaceOpacity) * ids.Count / maxIds).ToString("f3", CultureInfo.InvariantCulture));
-                    }
-                }
-            }
-            _ = root.AppendChild(gFace);
-            _ = root.AppendChild(gEdge);
-            _ = root.AppendChild(gPoint);
-
-            document.Save(fileName + ".svg");
         }
 
     }

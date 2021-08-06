@@ -78,7 +78,7 @@ namespace TopologyLib.Data.D2_32.Geometry
             var interior0 = Interior0.Union(other.Interior0).ToBuilder();
             foreach (var he in Boundary1.Intersect(other.Boundary1))
             {
-                if (he.RefFace is not null && he.Twin.RefFace is not null && interior2.Contains(he.RefFace) && interior2.Contains(he.Twin.RefFace))
+                if (he.RefFace != null && he.Twin.RefFace != null && interior2.Contains(he.RefFace) && interior2.Contains(he.Twin.RefFace))
                 {
                     interior1.Add(he);
                     interior0.Add(he.Orig);

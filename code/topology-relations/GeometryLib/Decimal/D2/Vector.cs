@@ -261,8 +261,8 @@ namespace GeometryLib.Decimal.D2
             throw new NotImplementedException();
         }
 
-        IVector<decimal> IVector<decimal>.Min(IVector<decimal> other) => (IVector<decimal>)Max(other);
+        IVector<decimal> IVector<decimal>.Min(IVector<decimal> other) => (IVector<decimal>)Min(other);
 
-        IVector<decimal> IVector<decimal>.Max(IVector<decimal> other) => (IVector<decimal>)Min(other);
+        IVector<decimal> IVector<decimal>.Max(IVector<decimal> other) => (IVector<decimal>)Max(other);
     }
 }

@@ -113,7 +113,7 @@ namespace GeometryLib.Int64.Fraction.D2
 
         public long RoundY => y + (Den - NumY > NumY ? 0 : 1);
 
-        public I.Vector Ceiling => new(x + (NumX == 0 ? 0 : 1), y + (NumY == 0 ? 0 : 1));
+        public I.Vector Ceiling => new I.Vector(x + (NumX == 0 ? 0 : 1), y + (NumY == 0 ? 0 : 1));
 
 
         public (long x, long y) xy => (x, y);
