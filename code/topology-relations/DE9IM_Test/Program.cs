@@ -32,7 +32,7 @@ namespace DE9IM_Test
             TransformationCalculation.Translation(args[1], geometryComparisons, countInitialComparisons);
 
             //Einzelne Bibliotheken aufrufen und DE9IM Test durchführen
-            //PostGIS postgis = new PostGIS("Host=localhost;Port=5432;User Id=postgres;Password=toor;");
+            //PostGIS postgis = new PostGIS("");
             //postgis.CheckDE9IM(geometryComparisons);
 
             Topoloco64 topoloco = new Topoloco64();
