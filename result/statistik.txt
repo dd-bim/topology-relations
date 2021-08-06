@@ -1,0 +1,4 @@
+Number of tested Comparisons: 33
+Total Number of Tests: 3993
+Total Number of Translation Tests: 1980
+Total Number of Scaling Tests: 1980

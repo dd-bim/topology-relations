@@ -1,0 +1,35 @@
+\textbf{Test} & \multicolumn{4}{c}{\textbf{Failed translations [\%]}} & \multicolumn{4}{c}{\textbf{Failed scalings [\%]}} \\
+\textbf{\#}& \textbf{Algorithm 32Bit} & \textbf{Algorithm 64Bit} & \textbf{NTS 2.3.0} & \textbf{SpatiaLite 5.0.0}& \textbf{Algorithm 32Bit} & \textbf{Algorithm 64Bit} & \textbf{NTS 2.3.0} & \textbf{SpatiaLite 5.0.0} \\
+1 & \textcolor{green}{0} & \textcolor{yellow}{25} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} \\
+2 & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} \\
+3 & \textcolor{green}{0} & \textcolor{yellow}{55} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} \\
+4 & \textcolor{green}{0} & \textcolor{red}{55} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{red}{50} & \textcolor{red}{100} & \textcolor{red}{50} & \textcolor{red}{100} \\
+5 & \textcolor{green}{0} & \textcolor{yellow}{55} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} \\
+6 & \textcolor{green}{0} & \textcolor{yellow}{55} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} \\
+7 & \textcolor{green}{0} & \textcolor{yellow}{55} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} \\
+8 & \textcolor{green}{0} & \textcolor{red}{55} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{red}{50} & \textcolor{red}{100} & \textcolor{red}{50} & \textcolor{red}{100} \\
+9 & \textcolor{green}{0} & \textcolor{red}{55} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{red}{50} & \textcolor{red}{100} & \textcolor{red}{50} & \textcolor{red}{100} \\
+10 & \textcolor{green}{0} & \textcolor{red}{55} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{red}{50} & \textcolor{red}{100} & \textcolor{red}{50} & \textcolor{red}{100} \\
+11 & \textcolor{green}{0} & \textcolor{red}{55} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{red}{50} & \textcolor{red}{100} & \textcolor{red}{50} & \textcolor{red}{100} \\
+12 & \textcolor{green}{0} & \textcolor{yellow}{55} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} \\
+13 & \textcolor{green}{0} & \textcolor{yellow}{55} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} \\
+14 & \textcolor{green}{0} & \textcolor{yellow}{55} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} \\
+15 & \textcolor{green}{0} & \textcolor{yellow}{55} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} \\
+16 & \textcolor{green}{0} & \textcolor{red}{55} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{red}{30} & \textcolor{red}{100} & \textcolor{red}{30} & \textcolor{red}{100} \\
+17 & \textcolor{green}{0} & \textcolor{yellow}{55} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} \\
+18 & \textcolor{green}{0} & \textcolor{yellow}{55} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} \\
+19 & \textcolor{green}{0} & \textcolor{red}{55} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{red}{30} & \textcolor{red}{100} & \textcolor{red}{30} & \textcolor{red}{100} \\
+20 & \textcolor{green}{0} & \textcolor{red}{55} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{red}{42} & \textcolor{red}{100} & \textcolor{red}{42} & \textcolor{red}{100} \\
+21 & \textcolor{green}{0} & \textcolor{red}{18} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{red}{42} & \textcolor{red}{100} & \textcolor{red}{42} & \textcolor{red}{100} \\
+22 & \textcolor{green}{0} & \textcolor{red}{55} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{red}{30} & \textcolor{red}{100} & \textcolor{red}{30} & \textcolor{red}{100} \\
+23 & \textcolor{green}{0} & \textcolor{yellow}{55} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} \\
+24 & \textcolor{green}{0} & \textcolor{red}{55} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{red}{42} & \textcolor{red}{100} & \textcolor{red}{42} & \textcolor{red}{100} \\
+25 & \textcolor{green}{0} & \textcolor{yellow}{55} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} \\
+26 & \textcolor{green}{0} & \textcolor{yellow}{55} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} \\
+27 & \textcolor{green}{0} & \textcolor{yellow}{55} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} \\
+28 & \textcolor{green}{0} & \textcolor{yellow}{55} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} \\
+29 & \textcolor{green}{0} & \textcolor{red}{55} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{red}{30} & \textcolor{red}{100} & \textcolor{red}{30} & \textcolor{red}{100} \\
+30 & \textcolor{green}{0} & \textcolor{red}{55} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{red}{30} & \textcolor{red}{100} & \textcolor{red}{30} & \textcolor{red}{100} \\
+31 & \textcolor{green}{0} & \textcolor{red}{55} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{red}{42} & \textcolor{red}{100} & \textcolor{red}{42} & \textcolor{red}{100} \\
+32 & \textcolor{green}{0} & \textcolor{yellow}{55} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} \\
+33 & \textcolor{green}{0} & \textcolor{red}{55} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{red}{30} & \textcolor{red}{100} & \textcolor{red}{30} & \textcolor{red}{100} \\
