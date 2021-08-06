@@ -31,9 +31,11 @@ namespace GeometryLib.Int64.D2
 
         public (long x, long y) xy => (x, y);
 
-        public double DoubleX => x;
+        public decimal DecimalX => x;
 
-        public double DoubleY => y;
+        public decimal DecimalY => y;
+
+        public Decimal.D2.Vector ToDecimal() => new Decimal.D2.Vector(DecimalX, DecimalY);
 
         /// <summary>
         ///     Initializes a new instance of the <see cref="Vector" /> struct.

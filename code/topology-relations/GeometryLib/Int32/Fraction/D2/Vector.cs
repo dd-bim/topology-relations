@@ -24,14 +24,12 @@ namespace GeometryLib.Int32.Fraction.D2
         public int x { get; }
         public int y { get; }
 
-
-        public double DoubleX => x + (double) NumX / Den;
-
-        public double DoubleY => y + (double) NumY / Den;
-
         public decimal DecimalX => x + (decimal)NumX / Den;
 
         public decimal DecimalY => y + (decimal)NumY / Den;
+
+        public Decimal.D2.Vector ToDecimal() => new Decimal.D2.Vector(DecimalX, DecimalY);
+
 
         #region Constructors
 
@@ -157,7 +155,7 @@ namespace GeometryLib.Int32.Fraction.D2
 
         public string ToString(string separator)
         {
-            return string.Format(CultureInfo.InvariantCulture, "{0:G17}{2}{1:G17}", DoubleX, DoubleY, separator);
+            return string.Format(CultureInfo.InvariantCulture, "{0:G}{2}{1:G}", DecimalX, DecimalY, separator);
         }
 
         public string ToWktString()

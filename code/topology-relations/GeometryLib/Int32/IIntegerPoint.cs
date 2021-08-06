@@ -4,11 +4,13 @@ namespace GeometryLib.Int32
 {
     public interface IIntegerPoint:IEquatable<IIntegerPoint>
     {
-        double DoubleX { get; }
+        decimal DecimalX { get; }
 
-        double DoubleY { get; }
+        decimal DecimalY { get; }
 
         int x { get; }
         int y { get; }
+
+        Decimal.D2.Vector ToDecimal();
     }
 }

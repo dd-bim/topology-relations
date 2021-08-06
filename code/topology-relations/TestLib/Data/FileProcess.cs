@@ -70,68 +70,68 @@ namespace TestLib.Data
             }
         }
 
-        public static void WriteComparisonFile(List<GeometryComparison> geometryComparisons)
-        {
-            try
-            {
-                //Speicher-Dialog erstellen und anpassen
-                SaveFileDialog sfd = new SaveFileDialog();
-                sfd.Filter = "Comma-separated file (*.csv)|*.csv|Text files (*.txt)|*.txt|All files (*.*)|*.*";
-                sfd.FilterIndex = 3;
-                //sfd.InitialDirectory = @"c:\temp\";
-                sfd.RestoreDirectory = true;
-                sfd.DefaultExt = "csv";
-                sfd.Title = "Save Comparison File";
-                sfd.FileName = "DE9IMComparison";
-                //Stream zum Schreiben einer Datei erstellen
-                Stream myStream;
-                if (sfd.ShowDialog() == DialogResult.OK)
-                {
-                    if ((myStream = sfd.OpenFile()) != null)
-                    {
-                        StreamWriter sw = new StreamWriter(myStream);
-                        using (sw)
-                        {
-                            //Schreiben der Datei
-                            //Schreiben der erste Zeile welche extra ist
-                            sw.WriteLine("Geometry1 WKT;Geometry2 WKT;DE-9IM Pattern-Matrix;Result Actual-Matrix;DE-9IM Actual-Matrix;Library(Version);Transformation;ComparisonNumber");
-                            //Schreiben der Werte
-                            foreach (GeometryComparison item in geometryComparisons)
-                            {
-                                foreach (PatternMatrix matrix in item.PatternMatrices)
-                                {
-                                    foreach (Result result in matrix.Results)
-                                    {
-                                        //Nur die falschen Ergebnisse schreiben damit sie interpretiert werden
-                                        //if (!result.ResultBool)
-                                        //{
-                                        sw.WriteLine(string.Join(";", item.BaseGeometry, item.ComparativeGeometry, matrix.Matrix, result.ResultBool, result.LibraryMatrix, result.Library, item.Transformation, item.ComparisonNumber));
-                                        //}
-                                    }
-                                }
-                                foreach (PatternMatrix matrix in item.TransposedPatternMatrices)
-                                {
-                                    foreach (Result result in matrix.Results)
-                                    {
-                                        //Nur die falschen Ergebnisse schreiben damit sie interpretiert werden
-                                        //if (!result.ResultBool)
-                                        //{
-                                        sw.WriteLine(string.Join(";", item.ComparativeGeometry, item.BaseGeometry, matrix.Matrix, result.ResultBool, result.LibraryMatrix, result.Library, item.Transformation, item.ComparisonNumber));
-                                        //}
-                                    }
-                                }
-                            }
-                        }
-                        myStream.Close();
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
-        }
+        //public static void WriteComparisonFile(List<GeometryComparison> geometryComparisons)
+        //{
+        //    try
+        //    {
+        //        //Speicher-Dialog erstellen und anpassen
+        //        SaveFileDialog sfd = new SaveFileDialog();
+        //        sfd.Filter = "Comma-separated file (*.csv)|*.csv|Text files (*.txt)|*.txt|All files (*.*)|*.*";
+        //        sfd.FilterIndex = 3;
+        //        //sfd.InitialDirectory = @"c:\temp\";
+        //        sfd.RestoreDirectory = true;
+        //        sfd.DefaultExt = "csv";
+        //        sfd.Title = "Save Comparison File";
+        //        sfd.FileName = "DE9IMComparison";
+        //        //Stream zum Schreiben einer Datei erstellen
+        //        Stream myStream;
+        //        if (sfd.ShowDialog() == DialogResult.OK)
+        //        {
+        //            if ((myStream = sfd.OpenFile()) != null)
+        //            {
+        //                StreamWriter sw = new StreamWriter(myStream);
+        //                using (sw)
+        //                {
+        //                    //Schreiben der Datei
+        //                    //Schreiben der erste Zeile welche extra ist
+        //                    sw.WriteLine("Geometry1 WKT;Geometry2 WKT;DE-9IM Pattern-Matrix;Result Actual-Matrix;DE-9IM Actual-Matrix;Library(Version);Transformation;ComparisonNumber");
+        //                    //Schreiben der Werte
+        //                    foreach (GeometryComparison item in geometryComparisons)
+        //                    {
+        //                        foreach (PatternMatrix matrix in item.PatternMatrices)
+        //                        {
+        //                            foreach (Result result in matrix.Results)
+        //                            {
+        //                                //Nur die falschen Ergebnisse schreiben damit sie interpretiert werden
+        //                                //if (!result.ResultBool)
+        //                                //{
+        //                                sw.WriteLine(string.Join(";", item.BaseGeometry, item.ComparativeGeometry, matrix.Matrix, result.ResultBool, result.LibraryMatrix, result.Library, item.Transformation, item.ComparisonNumber));
+        //                                //}
+        //                            }
+        //                        }
+        //                        foreach (PatternMatrix matrix in item.TransposedPatternMatrices)
+        //                        {
+        //                            foreach (Result result in matrix.Results)
+        //                            {
+        //                                //Nur die falschen Ergebnisse schreiben damit sie interpretiert werden
+        //                                //if (!result.ResultBool)
+        //                                //{
+        //                                sw.WriteLine(string.Join(";", item.ComparativeGeometry, item.BaseGeometry, matrix.Matrix, result.ResultBool, result.LibraryMatrix, result.Library, item.Transformation, item.ComparisonNumber));
+        //                                //}
+        //                            }
+        //                        }
+        //                    }
+        //                }
+        //                myStream.Close();
+        //            }
+        //        }
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        Console.WriteLine(e);
+        //        throw;
+        //    }
+        //}
 
         public static void Analyse(in List<GeometryComparison> geometryComparisons)
         {

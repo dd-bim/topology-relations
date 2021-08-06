@@ -33,13 +33,11 @@ namespace GeometryLib.Int64.Fraction.D2
             return frac;
         }
 
-        public double DoubleX => x + (double)NumX / (double)Den;
-
-        public double DoubleY => y + (double)NumY / (double)Den;
-
         public decimal DecimalX => x + getFrac(NumX, Den);
 
         public decimal DecimalY => y + getFrac(NumY, Den);
+
+        public Decimal.D2.Vector ToDecimal() => new Decimal.D2.Vector(DecimalX, DecimalY);
 
         #region Constructors
 
@@ -160,7 +158,7 @@ namespace GeometryLib.Int64.Fraction.D2
 
         public string ToString(string separator)
         {
-            return string.Format(CultureInfo.InvariantCulture, "{0:G17}{2}{1:G17}", DoubleX, DoubleY, separator);
+            return string.Format(CultureInfo.InvariantCulture, "{0:G}{2}{1:G}", DecimalX, DecimalY, separator);
         }
 
         public string ToWktString()
