@@ -1,3 +1,5 @@
+partiell fork of: https://github.com/AIBrain/BigMath
+
 # BigMath
 
 Portable class library for computations with big numbers such as `Int128`, `Int256` and `BigInteger`. There is also `ExtendedBitConverter` which allows to convert regular and big numbers to/from array of bytes, with possibility of explicit setting of bytes order [Big-endian/Little-endian](http://en.wikipedia.org/wiki/Endianness).
