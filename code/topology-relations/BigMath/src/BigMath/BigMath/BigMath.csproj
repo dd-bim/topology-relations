@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net5.0;netstandard20</TargetFrameworks>
+	  <Nullable>enable</Nullable>
+	  <LangVersion>preview</LangVersion>
+	  <Platforms>x64;AnyCPU</Platforms>
+	  <Description>Fork der BigMath Library von https://github.com/AIBrain/BigMath, um Net Core zu bauen</Description>
+	  <Version>1.0.0.3</Version>
+	  <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+</Project>
